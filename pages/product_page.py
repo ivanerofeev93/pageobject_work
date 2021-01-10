@@ -3,7 +3,7 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def should_be_add_to_basket_button(self):
+    def should_add_to_basket(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         button.click()
 
@@ -18,3 +18,11 @@ class ProductPage(BasePage):
         price = self.browser.find_element(*ProductPageLocators.ITEM_PRICE).text
         price_in_alert = self.browser.find_element(*ProductPageLocators.BASKET_SUM_PRICE).text
         assert price == price_in_alert, "Prices are not equal"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ITEM_ADDED_ALERT), \
+            "Success message is presented, but should not be"
+
+    def success_message_should_dessapear(self):
+        assert self.is_disappeared(*ProductPageLocators.ITEM_ADDED_ALERT), \
+            "Message not dessapeared"

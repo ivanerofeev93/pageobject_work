@@ -16,5 +16,5 @@ class ProductPage(BasePage):
     def sum_of_basket_should_match_the_item(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_SUM_ALERT), "'Basket sum' box is not presented"
         price = self.browser.find_element(*ProductPageLocators.ITEM_PRICE).text
-        price_in_alert = self.browser.find_element(*ProductPageLocators.BASKET_SUM_ALERT).text
-        assert price in price_in_alert, "Prices are not equal"
+        price_in_alert = self.browser.find_element(*ProductPageLocators.BASKET_SUM_PRICE).text
+        assert price == price_in_alert, "Prices are not equal"

@@ -17,4 +17,4 @@ class ProductPageLocators:
     ITEM_ADDED_ALERT = (By.CLASS_NAME, 'alert-success')
     ITEM_ADDED_NAME = (By.XPATH, '//div[1]/div[@class="alertinner "]/strong')
     BASKET_SUM_ALERT = (By.CLASS_NAME, 'alert-info')
-    BASKET_SUM_PRICE = (By.XPATH, '//div[2]/div[@class="alertinner "]/strong')
+    BASKET_SUM_PRICE = (By.XPATH, '//div[3]/div[@class="alertinner "]/p/strong')

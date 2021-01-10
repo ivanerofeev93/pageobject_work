@@ -1,6 +1,5 @@
 from .pages.product_page import ProductPage
 import pytest
-import time
 
 
 @pytest.mark.parametrize('offer', ["?promo=offer0",
@@ -9,7 +8,7 @@ import time
                                   "?promo=offer3",
                                   "?promo=offer4",
                                   "?promo=offer6",
-                                  "?promo=offer7",
+                                  pytest.param("?promo=offer7", marks=pytest.mark.xfail),
                                   "?promo=offer8",
                                   "?promo=offer9"])
 def test_guest_can_add_product_to_basket(browser, offer):
